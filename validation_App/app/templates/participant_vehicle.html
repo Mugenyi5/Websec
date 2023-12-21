@@ -1,0 +1,92 @@
+<!-- templates/create_participant_and_vehicle.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Participant and Vehicle</title>
+    <style>
+        h2{
+            text-align:center;
+        }
+        body {
+            background-image: url('/static/images/background.jpg');
+         
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-container div {
+            width: 35%;
+            margin-bottom: 5px;
+        }
+
+        form {
+            background-color:#6495ED;
+            padding: 10px;
+            margin: 0;
+            border-radius: 1px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.0);
+            max-width: 400px;  /* Adjust as needed */
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color:black;
+        }
+
+        input, select {
+            width: 75%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h2>Adding  Participant and Vehicle Details</h2>
+        
+    <div class="form-container">
+        <div>
+            <h3>Add Participant</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ participant_form.as_p }}
+                <button type="submit">Submit Participant</button>
+            </form>
+        </div>
+        <div>
+            <h3>Add Car Details</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ vehicle_form.as_p }}
+                <button type="submit">Submit Vehicle</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
